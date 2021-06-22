@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { StudentProvider } from './utils/StudentContext';
+import StudentList from './components/StudentList';
+import './app.css';
 
 function App() {
+  const title = 'Activity 6: Reducers';
+  useEffect(() => {
+    document.title = title;
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        The Wrath of the Emperor, Cypher 9, The Heir of Tulak Hoard, and the Champion of the Great Hunt!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>22.1 State</h1>
+      <h4 style={{ color: 'lightseagreen' }}>{title}</h4>
+      {/* Provider wraps all the logic that handles/updates our state */}
+      <StudentProvider>
+        <StudentList />
+      </StudentProvider>
     </div>
   );
 }
